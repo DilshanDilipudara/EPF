@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <title>view</title>
+</head>
+<body>
+    
+    <header>
+        <%- include('../partials/nav'); %>
+    </header>
+
+    <div class="container">
+        <br>
+            <h2 > Office </h2>
+        <br>
+        <main>
+            <% if(data.length > 0) { %>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Office Code</th>
+                    <th scope="col">Office Name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address Line 1</th>
+                    <th scope="col">Address Line 2</th>
+                    <th  scope="col">street</th>
+                    <th  scope="col">country</th>
+                    <th  scope="col">Postal Code</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% data.forEach((data,index)=>{ %>
+
+                  <tr>
+               
+                    <td><%= data.officeCode %></td>
+                    <td><%= data.officeName %></td>
+                    <td><%= data.city %></td>
+                    <td><%= data.phone %></td>
+                    <td><%= data.addressLine1 %></td>
+                    <td><%= data.addressLine2 %></td>
+                    <td><%= data.street %></td>
+                    <td><%= data.country %></td>
+                    <td><%= data.postalCode %></td>
+                  </tr>
+        
+                  <% }) %>
+                </tbody>
+              </table>
+             <% } %>
+        </main>
+    </div>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>

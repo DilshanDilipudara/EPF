@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <title>Update Employee</title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/nav'); %>
+    </header>
+
+    <div class="container">
+        <main>
+          <br>
+          <h2>Update Employee</h2>
+          <br>
+          <% if(data.length > 0) { %>
+            <% data.forEach((data,index)=>{ %>
+            <form action="/updateFormEmployee" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label >Employee Number</label>
+                    <input type="number" class="form-control" id="employeeNumber"  value="<%= data.employeeNumber %>" placeholder="Enter employeeNumbe" disabled>
+                    <input type="hidden" class="form-control" id="employeeNumber"  value="<%= data.employeeNumber %>" name="employeeNumber"  >
+                  </div>
+                  <div class="form-group">
+                    <label >First Name</label>
+                    <input type="text" class="form-control" id="firstName" value="<%= data.firstName %>" name="firstName" placeholder="Enter First Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName"  value="<%= data.lastName%>" placeholder="Enter last name." required>
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="email" name="email"  value="<%= data.email %>" placeholder="Enter your email." required>
+                  </div>
+            
+                  <div class="form-group">
+                    <label> Job</label>
+                    <input type="text" class="form-control" id="job" name="job"  value="<%= data.jobTitle %>" placeholder="Enter your  job." required> 
+                  </div>
+                  <div class="form-group">
+                    <label> Office Code</label>
+                    <input type="text" class="form-control" id="officeName" name="officeName"  value="<%= data.officeName %>" required> 
+                  </div>
+                  <input type="hidden" class="form-control" id="officeCode" name="officeCode"  value="<%= data.officeCode %>" required> 
+                  <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <% }) %>    
+            <% } %> 
+        </main>
+    </div>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>

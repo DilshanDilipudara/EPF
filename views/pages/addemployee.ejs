@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <title>Add Employee</title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/nav'); %>
+    </header>
+
+    <div class="container">
+        <main>
+          <br>
+          <h2>Add Employee</h2>
+          <br>
+            <form action="/addFormEmployee" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label >Employee Number</label>
+                    <input type="number" class="form-control" id="employeeNumber" name="employeeNumber" placeholder="Enter employeeNumbe" required>
+                  </div>
+                  <div class="form-group">
+                    <label >First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter last name." required>
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email." required>
+                  </div>
+                  <div class="form-group">
+                    <label> Office </label>
+                    <select class="form-control" name = "officeCode" required>
+                        <option value=""></option>
+                        <% if(office.length > 0) { %>
+                            <% office.forEach((office,index)=>{ %>
+                                 <option value="<%= office.officeCode %>"><%= office.officeName%></option>
+                            <% }) %>    
+                          <% } %> 
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label> Job</label>
+                    <input type="text" class="form-control" id="job" name="job" placeholder="Enter your  job." required> 
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </main>
+    </div>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>
