@@ -10,7 +10,8 @@ CREATE PROCEDURE updateEmployee(
     IN  lastName VARCHAR(50),
     IN  email VARCHAR(100),
     IN  officeCode VARCHAR(10),
-    IN  jobTitle VARCHAR(50)
+    IN  jobTitle VARCHAR(50),
+	IN  phnumber VARCHAR(255)
 )
 
 BEGIN
@@ -21,10 +22,12 @@ BEGIN
 		   lastName = lastName,
 		   email = email,
 		   officeCode = officeCode,
-		   jobTitle = jobTitle
+		   jobTitle = jobTitle,
+           phoneNumber = phnumber
 	WHERE  
 		  employeeNumber = emp;
           
 END $$
 
 DELIMITER ;
+ 

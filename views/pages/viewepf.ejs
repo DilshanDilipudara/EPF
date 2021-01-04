@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <title>View EPF</title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/nav'); %>
+    </header>
+    <div class="container">
+        <br>
+        <h2 > EPF </h2>
+        <br>
+        <main>
+            <% if(data.length > 0) { %>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Office Code</th>
+                    <th scope="col">Office Name</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">EPF Code </th>
+                    <th  scope="col">Salary</th>
+                    <th  scope="col">EPF Total</th>
+                </thead>
+                <tbody>
+                <% data.forEach((data,index)=>{ %>
+
+                <tr>
+            
+                    <td><%= data.officeCode %></td>
+                    <td><%= data.officeName %></td>
+                    <td><%= data.firstName %></td>
+                    <td><%= data.lastName %></td>
+                    <td><%= data.epfcode %></td>
+                    <td><%= data.salary %></td>
+                    <td><%= data.total %></td>
+                </tr>
+        
+                <% }) %>
+                </tbody>
+            </table>
+            <% } %>
+        </main>
+    </div>
+    <footer >
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>

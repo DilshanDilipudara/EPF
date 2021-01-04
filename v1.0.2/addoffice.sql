@@ -9,8 +9,7 @@ CREATE PROCEDURE addoffice(
     IN    officeName varchar(255),
 	IN	  city varchar(50),
 	IN	  phone varchar(50),
-	IN	  addressLine1 varchar(50),
-	IN    addressLine2 varchar(50),
+	IN	  address varchar(50),
 	IN	  street varchar(50) ,
 	IN	  country varchar(50) ,
 	IN	  postalCode varchar(15)
@@ -18,10 +17,9 @@ CREATE PROCEDURE addoffice(
 
 BEGIN
 	
-	INSERT INTO	`offices` (`officeCode`,`officeName`,`city`,`phone`,`addressLine1`,`addressLine2`, `street`,`country` ,`postalCode`) VALUES
-    (officeCode,officeName,city,phone,addressLine1,addressLine2,street,country,postalCode);
+	INSERT INTO	`offices` (`officeCode`,`officeName`,`city`,`phone`,`address`, `street`,`country` ,`postalCode`) VALUES
+    (officeCode,officeName,city,phone,address,street,country,postalCode);
 
 END $$
 
 DELIMITER ;
-

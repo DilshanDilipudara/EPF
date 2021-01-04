@@ -8,14 +8,16 @@ const { render } = require('ejs');
 var office = require('./routes/office')
 const port = 3000;
 const employee = require('./routes/employee');
+const epf = require('./routes/epf');
+
+
 const db = mysql.createConnection({
     host: 'jhdjjtqo9w5bzq2t.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     user: 'u8il24jxufb4n4ty',
     password: 't5z5jvsyolrqhn9k',
     database: 'm0ky8hn32ov17miq'
-
 });
-//create database connection
+
 db.connect((err)=>{
     if(err){
         //throw err;
@@ -25,11 +27,6 @@ db.connect((err)=>{
 });
 
 global.db = db;
-
-app.listen(port,()=>{
-    console.log(`Sever runing on port: ${port}`);
-});
-
 
 // configure middleware
 app.set('port', process.env.port || port); // set express to use this port
@@ -62,7 +59,11 @@ app.get('/addemployee',employee);
 // employee add form data
 app.post('/addFormEmployee',employee);
 
+module.exports = app;
 
+app.listen(port,()=>{
+    console.log(`Server is runing on port : ${port}`)
+});
 
 //delete eployee
 app.get('/deleteemployee/:id',employee);
@@ -73,5 +74,12 @@ app.get('/updateemployee/:id',employee);
 //update employee 
 app.post('/updateFormEmployee',employee);
 
-module.exports = app;
+//load addepf
+app.get('/addepf',epf);
 
+
+// epf form data post to db
+app.post('/epfaddform',epf);
+
+// epf view
+app.get('/viewepf',epf);

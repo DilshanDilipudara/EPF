@@ -41,8 +41,14 @@
                   </div>
                   <div class="form-group">
                     <label> Office Code</label>
-                    <input type="text" class="form-control" id="officeName" name="officeName"  value="<%= data.officeName %>" required> 
+                    <input type="text" class="form-control" id="officeName" name="officeName"  value="<%= data.officeName %>" disabled> 
                   </div>
+                  <div class="form-group">
+                    <label> Phone Number</label>
+                    <input type="number" class="form-control" id="phoneNumber" name="phoneNumber"  value="<%= data.phoneNumber %>" required> 
+                  </div>
+                  
+                  
                   <input type="hidden" class="form-control" id="officeCode" name="officeCode"  value="<%= data.officeCode %>" required> 
                   <button type="submit" class="btn btn-primary">Submit</button>
             </form>

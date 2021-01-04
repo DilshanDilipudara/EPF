@@ -42,10 +42,11 @@ router.post('/addFormEmployee',(req,res)=>{
    let email = req.body.email;
    let officeCode = req.body.officeCode;
    let jobTitle = req.body.job;
+   let phoneNumber = req.body.phoneNumber;
 
-   let sql = `call addemployee(?,?,?,?,?,?)`;
+   let sql = `call addemployee(?,?,?,?,?,?,?)`;
     
-   db.query(sql,[employeeNumber,firstName,lastName,email,officeCode,jobTitle],(err,results)=>{
+   db.query(sql,[employeeNumber,firstName,lastName,email,officeCode,jobTitle,phoneNumber],(err,results)=>{
      if (err){
          console.log(err);
      }
@@ -116,10 +117,11 @@ router.post('/updateFormEmployee',(req,res)=>{
     let email = req.body.email;
     let officeCode = req.body.officeCode;
     let jobTitle = req.body.job;
-    
-    let sql = `call updateEmployee(?,?,?,?,?,?)`;
+    let phoneNumber = req.body.phoneNumber;
 
-    db.query(sql,[employeeNumber,firstName,lastName,email,officeCode,jobTitle],(err,results)=>{
+    let sql = `call updateEmployee(?,?,?,?,?,?,?)`;
+
+    db.query(sql,[employeeNumber,firstName,lastName,email,officeCode,jobTitle,phoneNumber],(err,results)=>{
         if (err) throw err;
 
         let  sql = `call viewemployee()`;

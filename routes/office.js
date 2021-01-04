@@ -23,20 +23,19 @@ router.get('/addoffice',(req,res)=>{
 
 //form data add office
 router.post('/addFormOffice',(req,res)=>{
-    console.log(req.body);
+    //console.log(req.body);
     let officeCode = req.body.officeCode;
     let officeName = req.body.officeName;
     let city = req.body.city;
     let phone = req.body.phonenumber;
-    let addressLine1 = req.body.addressLine1;
-    let addressLine2 = req.body.addressLine2;
+    let address = req.body.address;
     let street = req.body.street;
     let country = req.body.country;
     let postalCode = req.body.postalcode;
 
-    let sql = `call addoffice(?,?,?,?,?,?,?,?,?)`
+    let sql = `call addoffice(?,?,?,?,?,?,?,?)`
 
-    db.query(sql,[officeCode,officeName,city,phone,addressLine1,addressLine2,street,country,postalCode],(err,results)=>{
+    db.query(sql,[officeCode,officeName,city,phone,address,street,country,postalCode],(err,results)=>{
         if(err) throw err;
 
         let sql = `call getoffices()`;

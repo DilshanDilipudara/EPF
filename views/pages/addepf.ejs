@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/nav'); %>
+    </header>
+    <div class="container">
+        <main>
+            <br>
+            <h2>Add EPF</h2>
+            <br>
+            <form action="/epfaddform" method="post">
+                <div class="form-group">
+                    <label> Employee <br> <small> (First Name, Last Name ,Employee  Number)</small></label>
+                    <select class="form-control" name = "employeeNumber" required>
+                        <option value=""></option>
+                        <% if(employee.length > 0) { %>
+                            <% employee.forEach((employee,index)=>{ %>
+                                 <option value="<%= employee.employeeNumber %>"><%= employee.name %></option>
+                            <% }) %>    
+                          <% } %> 
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label >EPF Code</label>
+                    <input type="number" class="form-control" id="epfcode" name="epfcode" placeholder="Enter EPF Code" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Month</label>
+                    <input type="date" class="form-control" id="month" name="month" placeholder="Enter your month." required>
+                  </div>
+                  <div class="form-group">
+                    <label>Salary</label>
+                    <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter your salary." required>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </main>
+    </div>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>

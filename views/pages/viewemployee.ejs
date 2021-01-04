@@ -25,8 +25,9 @@
                     <th scope="col">Email</th>
                     <th scope="col">Office </th>
                     <th  scope="col">Job</th>
+                    <th  scope="col">phone Number</th>
                     <th scope="col">Update </th>
-                    <th  scope="col"> Delete</th>
+                    <!-- <th  scope="col"> Delete</th> -->
                 </thead>
                 <tbody>
                 <% data.forEach((data,index)=>{ %>
@@ -39,8 +40,9 @@
                     <td><%= data.email %></td>
                     <td><%= data.officeName%></td>
                     <td><%= data.jobTitle %></td>
+                    <td><%= data.phoneNumber %></td>
                     <td><a href="/updateemployee/<%= data.employeeNumber %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a></td>
-                    <td><a href="/deleteemployee/<%= data.employeeNumber %>" class="btn btn-sm btn-danger">Delete</a></td>
+                    <!-- <td><a href="/deleteemployee/<%= data.employeeNumber %>" class="btn btn-sm btn-danger">Delete</a></td> -->
                 </tr>
         
                 <% }) %>
